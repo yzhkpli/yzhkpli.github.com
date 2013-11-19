@@ -124,6 +124,39 @@ curl <span class="url">https://npmjs.org/install.sh</span> | sh
 <span class="title">hexo</span> init bloggithub
 </pre></td></tr></table></figure>
 
+
+<h2>创建新文章</h2>
+<p>hexo的原理是编写markdown格式的文件，而后用hexo generate命令生成html格式的。待启动服务后，就可以查看到网页内容了。</p>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="title">hexo</span> new <span class="string">"Debian7 initialize"</span>
+返回
+[info] <span class="type">File</span> created at /<span class="typedef"><span class="keyword">data</span>/bloggithub/source/_posts/debian7-initialize.md</span>
+</pre></td></tr></table></figure>
+
+
+<p>hexo中可以建立三种类型的文章：<br>默认是post类型    生成于/source/_post/目录下。其它的两种是page类型的，生成在source文件夹下。draft类型的，生成在source/drafts文件夹下。</p>
+<p>生成静态文件</p>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">hexo</span> generate
+</pre></td></tr></table></figure>
+
+
+<p>而后可以启动本地服务器</p>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">hexo</span> server [-p <span class="number">5000</span>] &amp;
+</pre></td></tr></table></figure>
+
+
+<p>也可以部署到github上。</p>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="comment">hexo</span> <span class="comment">deploy</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">generate
+</pre></td></tr></table></figure>
+
+
+<h2>部署到github的经过</h2>
+
       
     </div>
     <footer>
