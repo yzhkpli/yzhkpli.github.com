@@ -139,13 +139,49 @@ deb-src http://ftp<span class="preprocessor">.riken</span><span class="preproces
 </pre></td></tr></table></figure>
 
 
+<h1>升级</h1>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>apt-get <span class="operator"><span class="keyword">update</span> -y
+</pre></td></tr></table></figure>
+
+
+
+<h1>安装工具软件</h1>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="preprocessor">#安装vim工具</span>
+apt-<span class="keyword">get</span> install -y vim
+apt-<span class="keyword">get</span> install -y tree
+<span class="preprocessor">#安装上传下载工具</span>
+apt-<span class="keyword">get</span> install -y lrzsz
+apt-<span class="keyword">get</span> install -y unzip
+apt-<span class="keyword">get</span> install -y curl
+apt-<span class="keyword">get</span> install -y mlocate
+<span class="preprocessor">#安装开发工具</span>
+apt-<span class="keyword">get</span> install -y build-essential
+apt-<span class="keyword">get</span> install -y openssl libssl-dev
+
+<span class="preprocessor">#安装git工具</span>
+apt-<span class="keyword">get</span> install -y git-core
+</pre></td></tr></table></figure>
+
 
 <h1>安装apt的文件搜索工具</h1>
 <figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
 2
-3
-</pre></td><td class="code"><pre><span class="comment">#xxx</span>
-apt-<span class="keyword">get</span> install apt-<span class="type">file</span>
+</pre></td><td class="code"><pre>apt-<span class="keyword">get</span> install apt-<span class="type">file</span>
 apt-<span class="type">file</span> update
 </pre></td></tr></table></figure>
 
