@@ -156,6 +156,37 @@ curl <span class="url">https://npmjs.org/install.sh</span> | sh
 
 
 <h2>部署到github的经过</h2>
+<p>1、在godday上购买一个域名。将@ 和WWW 的A记录都指向到 204.<br>而后到dnspod上将@和A记录都导入进来。<br>再回到godday上将nameserver修改成dnspod的nameserver服务器名字。</p>
+<p>2、在hexo的source文件夹下面建立一个CNAME的文件。内容就是自己的顶级域名。</p>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="preprocessor">#vim source/CNAME</span>
+yum2014.info
+</pre></td></tr></table></figure>
+
+
+<p>3、github上设置添加一个名为USERNAME.github.info的repo</p>
+<p>4、在_config.yml的最后一部分设置为</p>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="preprocessor"># Deployment</span>
+<span class="preprocessor">## Docs: http://zespia.tw/hexo/docs/deploy.html</span>
+<span class="label">deploy:</span>
+  type: github
+  repository: git@github<span class="preprocessor">.com</span>:yzhkpli/yzhkpli<span class="preprocessor">.github</span><span class="preprocessor">.com</span><span class="preprocessor">.git</span>
+  branch: master
+</pre></td></tr></table></figure>
+
+
+<p>5、建立ssh密钥对。将公钥内容复制到github网的个人信息内。</p>
+<p>至此已经可以编写同步博客了。执行</p>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="comment">hexo</span> <span class="comment">deploy</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">generate
+</pre></td></tr></table></figure>
 
       
     </div>
