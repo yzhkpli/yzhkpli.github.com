@@ -99,6 +99,45 @@
 <span class="title">gateway</span> 192.168.1.1
 </pre></td></tr></table></figure>
 
+<h1>设置源</h1>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre>deb http://mirrors<span class="number">.163</span><span class="preprocessor">.com</span>/debian wheezy main non-free contrib
+deb-src http://mirrors<span class="number">.163</span><span class="preprocessor">.com</span>/debian wheezy main non-free contrib
+
+deb http://mirrors<span class="number">.163</span><span class="preprocessor">.com</span>/debian wheezy-proposed-updates main contrib non-free
+deb-src http://mirrors<span class="number">.163</span><span class="preprocessor">.com</span>/debian wheezy-proposed-updates main contrib non-free
+
+deb http://mirrors<span class="number">.163</span><span class="preprocessor">.com</span>/debian-security wheezy/updates main contrib non-free
+deb-src http://mirrors<span class="number">.163</span><span class="preprocessor">.com</span>/debian-security wheezy/updates main contrib non-free
+
+deb http://ftp<span class="preprocessor">.riken</span><span class="preprocessor">.jp</span>/Linux/debian/debian/ wheezy main
+deb-src http://ftp<span class="preprocessor">.riken</span><span class="preprocessor">.jp</span>/Linux/debian/debian/ wheezy main
+
+deb http://security<span class="preprocessor">.debian</span><span class="preprocessor">.org</span>/ wheezy/updates main
+deb-src http://security<span class="preprocessor">.debian</span><span class="preprocessor">.org</span>/ wheezy/updates main
+
+<span class="preprocessor"># wheezy-updates, previously known as 'volatile'</span>
+deb http://ftp<span class="preprocessor">.riken</span><span class="preprocessor">.jp</span>/Linux/debian/debian/ wheezy-updates main
+deb-src http://ftp<span class="preprocessor">.riken</span><span class="preprocessor">.jp</span>/Linux/debian/debian/ wheezy-updates main
+</pre></td></tr></table></figure>
+
       
     </div>
     <footer>
