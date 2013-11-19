@@ -3,19 +3,38 @@
 <head>
   <meta charset="utf-8">
   
-  <title>2013-11-18-Debian7-Initialize | Hexo</title>
+  <title>2013-11-19-Debian7-Mysql-Nginx-PHP | Hexo</title>
   <meta name="author" content="yzhkpli">
   
-  <meta name="description" content="debian系统是本文讲述debian7 x64 系统下的系统初始化。包括设置ip，设置源，安装基本的工具软件等。">
+  <meta name="description" content="安装mysql数据库
+1
+apt-get install mysql-server
+
+
+
+设置mysql的root密码是3306Pwd
+Nginx
+安装nginx
+1
+2
+3
+apt-get install nginx
+#或者
+apt-get install nginx-extras
+
+
+
+
+启动n">
   
 
                                                       
-<meta name="keywords" content="debian,apt,php,mysql,Linux,debian,centos">   
+<meta name="keywords" content="debian,mysql,nginx,php,php,mysql,Linux,debian,centos">   
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="2013-11-18-Debian7-Initialize"/>
+  <meta property="og:title" content="2013-11-19-Debian7-Mysql-Nginx-PHP"/>
   <meta property="og:site_name" content="Hexo"/>
 
   
@@ -57,132 +76,44 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-11-18T11:55:33.000Z"><a href="/2013/11/18/2013-11-18-debian7-initialize/">11月 18 2013</a></time>
+        <time datetime="2013-11-19T11:17:35.000Z"><a href="/2013/11/19/2013-11-19-debian7-mysql-nginx-php/">11月 19 2013</a></time>
       
       
   
-    <h1 class="title">2013-11-18-Debian7-Initialize</h1>
+    <h1 class="title">2013-11-19-Debian7-Mysql-Nginx-PHP</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>debian系统是<br>本文讲述debian7 x64 系统下的系统初始化。包括设置ip，设置源，安装基本的工具软件等。<br><a id="more"></a></p>
-<h1>设置 IP</h1>
+        <h1>安装mysql数据库</h1>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>apt-<span class="keyword">get</span> install mysql-<span class="built_in">server</span>
+</pre></td></tr></table></figure>
+
+
+<p>设置mysql的root密码是3306Pwd</p>
+<h1>Nginx</h1>
+<h2>安装nginx</h2>
 <figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
 2
 3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre># cat /etc/network/interfaces
-# This file describes the network interfaces available on your system
-# and how to activate them. For more information, see interfaces(<span class="number">5</span>).
-
-# The loopback network <span class="class"><span class="keyword">interface</span>
-<span class="title">auto</span> <span class="title">lo</span>
-<span class="title">iface</span> <span class="title">lo</span> <span class="title">inet</span> <span class="title">loopback</span>
-
-# <span class="title">The</span> <span class="title">primary</span> <span class="title">network</span> <span class="title">interface</span>
-<span class="title">allow</span>-<span class="title">hotplug</span> <span class="title">eth0</span>
-<span class="title">iface</span> <span class="title">eth0</span> <span class="title">inet</span> <span class="title">static</span>
-<span class="title">address</span> 192.168.1.77
-<span class="title">netmask</span> 255.255.255.0
-<span class="title">gateway</span> 192.168.1.1
-</pre></td></tr></table></figure>
-
-<h1>设置源</h1>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-</pre></td><td class="code"><pre>deb http://mirrors<span class="number">.163</span><span class="preprocessor">.com</span>/debian wheezy main non-free contrib
-deb-src http://mirrors<span class="number">.163</span><span class="preprocessor">.com</span>/debian wheezy main non-free contrib
-
-deb http://mirrors<span class="number">.163</span><span class="preprocessor">.com</span>/debian wheezy-proposed-updates main contrib non-free
-deb-src http://mirrors<span class="number">.163</span><span class="preprocessor">.com</span>/debian wheezy-proposed-updates main contrib non-free
-
-deb http://mirrors<span class="number">.163</span><span class="preprocessor">.com</span>/debian-security wheezy/updates main contrib non-free
-deb-src http://mirrors<span class="number">.163</span><span class="preprocessor">.com</span>/debian-security wheezy/updates main contrib non-free
-
-deb http://ftp<span class="preprocessor">.riken</span><span class="preprocessor">.jp</span>/Linux/debian/debian/ wheezy main
-deb-src http://ftp<span class="preprocessor">.riken</span><span class="preprocessor">.jp</span>/Linux/debian/debian/ wheezy main
-
-deb http://security<span class="preprocessor">.debian</span><span class="preprocessor">.org</span>/ wheezy/updates main
-deb-src http://security<span class="preprocessor">.debian</span><span class="preprocessor">.org</span>/ wheezy/updates main
-
-<span class="preprocessor"># wheezy-updates, previously known as 'volatile'</span>
-deb http://ftp<span class="preprocessor">.riken</span><span class="preprocessor">.jp</span>/Linux/debian/debian/ wheezy-updates main
-deb-src http://ftp<span class="preprocessor">.riken</span><span class="preprocessor">.jp</span>/Linux/debian/debian/ wheezy-updates main
-</pre></td></tr></table></figure>
-
-
-<h1>升级</h1>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>apt-get <span class="operator"><span class="keyword">update</span> -y
+</pre></td><td class="code"><pre>apt-<span class="keyword">get</span> install nginx
+<span class="preprocessor">#或者</span>
+apt-<span class="keyword">get</span> install nginx-extras
 </pre></td></tr></table></figure>
 
 
 
-<h1>安装工具软件</h1>
+<h2>启动nginx</h2>
 <figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="preprocessor">#安装vim工具</span>
-apt-<span class="keyword">get</span> install -y vim
-apt-<span class="keyword">get</span> install -y tree
-<span class="preprocessor">#安装上传下载工具</span>
-apt-<span class="keyword">get</span> install -y lrzsz
-apt-<span class="keyword">get</span> install -y unzip
-apt-<span class="keyword">get</span> install -y curl
-apt-<span class="keyword">get</span> install -y mlocate
-<span class="preprocessor">#安装开发工具</span>
-apt-<span class="keyword">get</span> install -y build-essential
-apt-<span class="keyword">get</span> install -y openssl libssl-dev
-
-<span class="preprocessor">#安装git工具</span>
-apt-<span class="keyword">get</span> install -y git-core
+</pre></td><td class="code"><pre>/etc/init.d/nginx <span class="operator"><span class="keyword">start</span>
 </pre></td></tr></table></figure>
 
 
-<h1>安装apt的文件搜索工具</h1>
+<p>测试</p>
 <figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>apt-<span class="keyword">get</span> install apt-<span class="type">file</span>
-apt-<span class="type">file</span> update
+</pre></td><td class="code"><pre><span class="title">curl</span> <span class="url">http://localhost
 </pre></td></tr></table></figure>
 
       
@@ -190,10 +121,15 @@ apt-<span class="type">file</span> update
     <footer>
       
         
+  
+  <div class="categories">
+    <a href="/categories/debian/">debian</a>
+  </div>
+
         
   
   <div class="tags">
-    <a href="/tags/debian/">debian</a>
+    <a href="/tags/debian/">debian</a>, <a href="/tags/mysql/">mysql</a>, <a href="/tags/nginx/">nginx</a>, <a href="/tags/php/">php</a>
   </div>
 
         
@@ -236,7 +172,7 @@ apt-<span class="type">file</span> update
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://yoursite.com/2013/11/18/2013-11-18-debian7-initialize/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://yoursite.com/2013/11/19/2013-11-19-debian7-mysql-nginx-php/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>
