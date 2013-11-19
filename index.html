@@ -96,6 +96,41 @@ apt-<span class="keyword">get</span> install nginx-extras
 </pre></td><td class="code"><pre><span class="title">curl</span> <span class="url">http://localhost
 </pre></td></tr></table></figure>
 
+
+<h2>安装php5</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre>apt-<span class="keyword">get</span> install -y php5 php5-fpm
+apt-<span class="keyword">get</span> install -y php5-mysql php5-cgi
+apt-<span class="keyword">get</span> install -y php5-gd php5-imagick php5-curl php5-mcrypt php5-pspell php5-xmlrpc php5-xsl
+apt-<span class="keyword">get</span> install -y php5-imap php5-sqlite php5-ldap
+/etc/init.d/php5-fpm start
+</pre></td></tr></table></figure>
+
+
+<p>检查端口</p>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">netstat</span> -ntulp|grep <span class="number">9000</span>
+</pre></td></tr></table></figure>
+
+
+
+<h2>建立一个php页面并测试</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>echo "<span class="pi">&lt;?php phpinfo(); ?&gt;</span>" &gt;&gt;/usr/share/nginx/www/phpinfo.php
+</pre></td></tr></table></figure>
+
+
+<p>测试</p>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>/etc/<span class="filename">init.d/nginx restart
+curl -I http</span>://localhost/<span class="filename">phpinfo.php
+</pre></td></tr></table></figure>
+
       
     </div>
     <footer>
