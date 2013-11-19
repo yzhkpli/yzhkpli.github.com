@@ -7,7 +7,14 @@
   <meta name="author" content="yzhkpli">
   
   <meta name="description" content="://github.com/tommy351/hexo 官网 http://zespia.tw/hexo
- 作者 https://twitter.com/tommy351">
+ 作者 https://twitter.com/tommy351
+安装
+安装nvm
+1
+2
+3
+4
+curl https://raw.github.com/creationix/nvm/mast">
   
 
                                                       
@@ -70,6 +77,55 @@
       
         <p>://github.com/tommy351/hexo<br><em> 官网 <a href="http://zespia.tw/hexo" target="_blank">http://zespia.tw/hexo</a>
 </em> 作者 <a href="https://twitter.com/tommy351" target="_blank">https://twitter.com/tommy351</a></p>
+<h1>安装</h1>
+<h2>安装nvm</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>curl https://raw<span class="preprocessor">.github</span><span class="preprocessor">.com</span>/creationix/nvm/master/install<span class="preprocessor">.sh</span> | sh
+
+echo <span class="string">". ~/.nvm/nvm.sh"</span> &gt;&gt; ~/<span class="preprocessor">.profile</span>
+source ~/<span class="preprocessor">.profile</span>
+</pre></td></tr></table></figure>
+
+
+<h2>安装指定版本的node.js</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">nvm</span> install <span class="number">0</span>.<span class="number">10</span>.<span class="number">21</span>
+</pre></td></tr></table></figure>
+
+
+<h2>安装npm</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="title">curl</span> <span class="url">https://npmjs.org/install.sh</span> | sudo npm_debug=<span class="number">1</span> clean=<span class="built_in">no</span> PATH=<span class="variable">$PATH</span> sh
+或者简单的
+curl <span class="url">https://npmjs.org/install.sh</span> | sh
+</pre></td></tr></table></figure>
+
+
+
+<h2>安装hexo</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">npm</span> install -g hexo
+</pre></td></tr></table></figure>
+
+
+<h1>开始使用hexo</h1>
+<h2>初始化hexo</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="title">cd</span> /<span class="typedef"><span class="keyword">data</span></span>
+建立项目
+<span class="title">hexo</span> init project
+或者是
+<span class="title">hexo</span> init bloggithub
+</pre></td></tr></table></figure>
 
       
     </div>
