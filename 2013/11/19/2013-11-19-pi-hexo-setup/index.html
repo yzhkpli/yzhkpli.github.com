@@ -6,9 +6,8 @@
   <title>2013-11-19-pi-hexo | To be DevOps &amp; Geek</title>
   <meta name="author" content="yzhkpli">
   
-  <meta name="description" content="http://github.com/tommy351/hexo
-官网 http://zespia.tw/hexo
-作者 https://twitter.com/tommy351">
+  <meta name="description" content="Error: Unknown logic tag at line 55: &quot;http://yum2014.info/2013/11/20/2013-11-20-hexo-writing/&quot;.
+    at Object.exports.parse (/root/.nvm/v0.10.21/lib/n">
   
 
                                                       
@@ -87,125 +86,17 @@ $(function(){
     </header>
     <div class="entry">
       
-        <ul>
-<li><a href="http://github.com/tommy351/hexo" target="_blank">http://github.com/tommy351/hexo</a></li>
-<li>官网 <a href="http://zespia.tw/hexo" target="_blank">http://zespia.tw/hexo</a></li>
-<li>作者 <a href="https://twitter.com/tommy351" target="_blank">https://twitter.com/tommy351</a><br><a id="more"></a><h1>安装</h1>
-<h2>安装nvm</h2>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>curl https://raw<span class="preprocessor">.github</span><span class="preprocessor">.com</span>/creationix/nvm/master/install<span class="preprocessor">.sh</span> | sh
-
-echo <span class="string">". ~/.nvm/nvm.sh"</span> &gt;&gt; ~/<span class="preprocessor">.profile</span>
-source ~/<span class="preprocessor">.profile</span>
-</pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<h2>安装指定版本的node.js</h2>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">nvm</span> install <span class="number">0</span>.<span class="number">10</span>.<span class="number">21</span>
-</pre></td></tr></table></figure>
-
-
-<h2>安装npm</h2>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="title">curl</span> <span class="url">https://npmjs.org/install.sh</span> | sudo npm_debug=<span class="number">1</span> clean=<span class="built_in">no</span> PATH=<span class="variable">$PATH</span> sh
-或者简单的
-curl <span class="url">https://npmjs.org/install.sh</span> | sh
-</pre></td></tr></table></figure>
-
-
-
-<h2>安装hexo</h2>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">npm</span> install -g hexo
-</pre></td></tr></table></figure>
-
-
-<h1>开始使用hexo</h1>
-<h2>初始化hexo</h2>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="title">cd</span> /<span class="typedef"><span class="keyword">data</span></span>
-建立项目
-<span class="title">hexo</span> init project
-或者是
-<span class="title">hexo</span> init bloggithub
-</pre></td></tr></table></figure>
-
-
-<h2>创建新文章</h2>
-<p>hexo的原理是编写markdown格式的文件，而后用hexo generate命令生成html格式的。待启动服务后，就可以查看到网页内容了。</p>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="title">hexo</span> new <span class="string">"Debian7 initialize"</span>
-返回
-[info] <span class="type">File</span> created at /<span class="typedef"><span class="keyword">data</span>/bloggithub/source/_posts/debian7-initialize.md</span>
-</pre></td></tr></table></figure>
-
-
-<p>hexo中可以建立三种类型的文章：<br>默认是post类型    生成于/source/_post/目录下。其它的两种是page类型的，生成在source文件夹下。draft类型的，生成在source/drafts文件夹下。</p>
-<p>生成静态文件</p>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">hexo</span> generate
-</pre></td></tr></table></figure>
-
-
-<p>而后可以启动本地服务器</p>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">hexo</span> server [-p <span class="number">5000</span>] &amp;
-</pre></td></tr></table></figure>
-
-
-<p>也可以部署到github上。</p>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="comment">hexo</span> <span class="comment">deploy</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">generate
-</pre></td></tr></table></figure>
-
-
-<h2>部署到github的经过</h2>
-<p>1、在godday上购买一个域名。将@ 和WWW 的A记录都指向到 204.<br>而后到dnspod上将@和A记录都导入进来。<br>再回到godday上将nameserver修改成dnspod的nameserver服务器名字。</p>
-<p>2、在hexo的source文件夹下面建立一个CNAME的文件。内容就是自己的顶级域名。</p>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="preprocessor">#vim source/CNAME</span>
-yum2014.info
-</pre></td></tr></table></figure>
-
-
-<p>3、github上设置添加一个名为USERNAME.github.info的repo</p>
-<p>4、在_config.yml的最后一部分设置为</p>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre><span class="preprocessor"># Deployment</span>
-<span class="preprocessor">## Docs: http://zespia.tw/hexo/docs/deploy.html</span>
-<span class="label">deploy:</span>
-  type: github
-  repository: git@github<span class="preprocessor">.com</span>:yzhkpli/yzhkpli<span class="preprocessor">.github</span><span class="preprocessor">.com</span><span class="preprocessor">.git</span>
-  branch: master
-</pre></td></tr></table></figure>
-
-
-<p>5、建立ssh密钥对。将公钥内容复制到github网的个人信息内。</p>
-<p>至此已经可以编写同步博客了。执行</p>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="comment">hexo</span> <span class="comment">deploy</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">generate
-</pre></td></tr></table></figure>
-
+        <pre>Error: Unknown logic tag at line 55: "http://yum2014.info/2013/11/20/2013-11-20-hexo-writing/".
+    at Object.exports.parse (/root/.nvm/v0.10.21/lib/node_modules/hexo/node_modules/swig/lib/parser.js:264:15)
+    at createTemplate (/root/.nvm/v0.10.21/lib/node_modules/hexo/node_modules/swig/lib/swig.js:84:29)
+    at getTemplate (/root/.nvm/v0.10.21/lib/node_modules/hexo/node_modules/swig/lib/swig.js:124:20)
+    at Object.exports.compile (/root/.nvm/v0.10.21/lib/node_modules/hexo/node_modules/swig/lib/swig.js:186:14)
+    at /root/.nvm/v0.10.21/lib/node_modules/hexo/lib/post/render.js:60:29
+    at /root/.nvm/v0.10.21/lib/node_modules/hexo/node_modules/async/lib/async.js:548:21
+    at /root/.nvm/v0.10.21/lib/node_modules/hexo/node_modules/async/lib/async.js:224:13
+    at iterate (/root/.nvm/v0.10.21/lib/node_modules/hexo/node_modules/async/lib/async.js:131:13)
+    at async.eachSeries (/root/.nvm/v0.10.21/lib/node_modules/hexo/node_modules/async/lib/async.js:147:9)
+    at _asyncMap (/root/.nvm/v0.10.21/lib/node_modules/hexo/node_modules/async/lib/async.js:223:9)</pre>
       
     </div>
     <footer>
