@@ -142,6 +142,15 @@ $(function(){
 <p>本文讲述的是pi上安装和配置debian linux系统的基本方法。</p>
 <p>在<a href="http://www.raspberrypi.org/downloads" target="_blank">这里</a><br>下载镜像文件。我下载的是2013-09-25-wheezy-raspbian.img。</p>
 <p>用USB Image Tool.exe将下载好的系统映像文件写入到tf卡中。</p>
+<p>注意：<br>如果重新写入，win7下是没法直接操作的。<br>需要安装一个MiniTool Partition Wizard 8.1.1软件。</p>
+<p>插入电源后，系统启动，首先进入的是一个config页面。<br>各项设置是：</p>
+<p>1、expand_rootfs（扩充SD卡空间）：因为系统镜像只有1.8g，而我们使用的SD卡一般都比这个大，如果不扩充，多余的空间就用不了了。<br>2、configure_keyboard（切换键盘布局）：系统默认是UK英式键盘布局，需要改成US美式布局（我使用Dvorak布局），键盘列表直接按回车，键盘布局选择Other，国家选择English(US)，键盘布局再选择English(US)即可。接下来的两个键可以不用设置，Ctrl+Alt+Breakspace关闭X最好设成Yes，这样如果在X图形界面崩溃或者死掉，还可以切回到命令行操作。<br>3、change_pass（修改密码）：默认密码是raspiberry。<br>4、change_timezone（修改时区）：需要改成Asia/Shanghai，因为树莓派没有记忆时间信息的芯片，配置完网络后最好配置NTP来保证时间的准确性。<br>5、boot_behaviour（开机是否启动图形界面）：考虑到树莓派可怜的cpu和内存，这个功能简单得可怜的图形界面还是算了吧。</p>
+<p>配置完后按两下Tab，选择Finish并回车，系统自动重启，最后进入登录界面。在这个界面上。能看到当前的ip。</p>
+<p>禁用root</p>
+<figure class="highlight lang-[bash]"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>su<span class="operator"><span class="keyword">do</span> passwd -l root
+</pre></td></tr></table></figure>
+
 
       
     </div>
