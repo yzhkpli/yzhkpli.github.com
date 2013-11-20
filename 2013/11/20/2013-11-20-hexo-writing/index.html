@@ -6,30 +6,7 @@
   <title>2013-11-20-hexo-writing | To be DevOps &amp; Geek</title>
   <meta name="author" content="yzhkpli">
   
-  <meta name="description" content="操作文章
-建立文章
-1
-hexo new &quot;title1&quot;
-
-
-文章的改名
-直接mv即可。而后hexo deploy —generate
-文字部分
-一般效果
-1
-2
-3
-4
-5
-#粗体
-*粗体*
-
-#斜体
-_斜体_
-
-
-文字引用部分
-{百分号 blockquote 百分号}Lorem ipsum d">
+  <meta name="description" content="主要是markdown的语法">
   
 
                                              
@@ -108,10 +85,16 @@ $(function(){
     </header>
     <div class="entry">
       
-        <h1>操作文章</h1>
+        <p>主要是markdown的语法<br><a id="more"></a></p>
+<h1>操作文章</h1>
 <h2>建立文章</h2>
 <figure class="highlight lang-[bash]"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="title">hexo</span> new <span class="string">"title1"</span>
+</pre></td></tr></table></figure>
+
+<p>编辑文章</p>
+<figure class="highlight lang-[bash]"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">vim</span> source/_posts/titlename
 </pre></td></tr></table></figure>
 
 <h2>文章的改名</h2>
@@ -140,6 +123,15 @@ _斜体_
 <span class="tag">code</span> <span class="tag">snippet</span>
 ```
 </pre></td></tr></table></figure>
+
+
+<h1>多媒体</h1>
+<h2>插入图片</h2>
+<p>最方便的是通过图床来完成。将图片拖入到<a href="http://weibotuchuang.sinaapp.com/" target="_blank">http://weibotuchuang.sinaapp.com/</a></p>
+<figure class="highlight lang-[bash]"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>![](http:<span class="comment">//url)</span>
+</pre></td></tr></table></figure>
+
 
       
     </div>
