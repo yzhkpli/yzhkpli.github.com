@@ -145,14 +145,14 @@ yum install net-snmp net-snmp-libs net-snmp-devel net-snmp-utils -y
 
 <h1>安装Mysql服务器</h1>
 <h1>添加zabbix需要的用户和目录</h1>
-<h1>添加用户和组</h1>
+<h2>添加zabbix需要的用户和组</h2>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>groupadd zabbix
 useradd -g zabbix -M -s /bin/bash zabbix
 </pre></td></tr></table></figure>
 
-<h1>建立目录</h1>
+<h2>建立目录</h2>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -192,6 +192,61 @@ chown -R zabbix.zabbix /etc/zabbix2/
 chown zabbix.zabbix /var/log/zabbix2
 chown zabbix.zabbix /var/run/zabbix2
 </pre></td></tr></table></figure>
+
+<h1>安装</h1>
+<h2>下载zabbix2.2 stable版</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>cd /usr/local/src/lemppackages/zabbix_src
+wget <span class="symbol">http:</span>/<span class="regexp">/sourceforge.net/projects</span><span class="regexp">/zabbix/files</span><span class="regexp">/ZABBIX%20Latest%20Stable/</span><span class="number">2.2</span>.<span class="number">0</span>/zabbix-<span class="number">2.2</span>.<span class="number">0</span>.tar.gz/download
+</pre></td></tr></table></figure>
+
+<h2>编译安装zabbix 2.2</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="code"><pre><span class="comment">cd</span> <span class="comment">/usr/local/src/lemppackages/zabbix_src</span>
+<span class="comment">tar</span> <span class="literal">-</span><span class="comment">xf</span> <span class="comment">zabbix</span>-<span class="comment">2</span>.<span class="comment">2</span>.<span class="comment">0</span>.<span class="comment">tar</span>.<span class="comment">gz</span>
+<span class="comment">cd</span> <span class="comment">/usr/local/src/lemppackages/zabbix_src/zabbix</span>-<span class="comment">2</span>.<span class="comment">2</span>.<span class="comment">0</span>
+
+<span class="comment">export</span> <span class="comment">LDFLAGS="</span>-<span class="comment">L/usr/local/mysql56/lib"</span>
+<span class="comment">echo</span> <span class="comment">"/usr/local/mysql56/lib"</span> &gt;&gt; <span class="comment">/etc/ld</span>.<span class="comment">so</span>.<span class="comment">conf</span>
+<span class="comment">echo</span> <span class="comment">"/usr/local/lib"</span> &gt;&gt; <span class="comment">/etc/ld</span>.<span class="comment">so</span>.<span class="comment">conf</span>
+
+<span class="comment">/sbin/ldconfig</span> <span class="literal">-</span><span class="comment">v</span>
+
+<span class="string">.</span><span class="comment">/configure</span> <span class="comment">\</span>
+<span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span>-<span class="comment">agent</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span>-<span class="comment">proxy</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span>-<span class="comment">server</span> <span class="comment">\</span>
+<span class="literal">-</span><span class="literal">-</span><span class="comment">with</span>-<span class="comment">mysql=/usr/local/mysql56/bin/mysql_config</span> <span class="comment">\</span>
+<span class="literal">-</span><span class="literal">-</span><span class="comment">with</span>-<span class="comment">libcurl</span> <span class="comment">\</span>
+<span class="literal">-</span><span class="literal">-</span><span class="comment">with</span>-<span class="comment">net</span>-<span class="comment">snmp</span> <span class="comment">\</span>
+<span class="literal">-</span><span class="literal">-</span><span class="comment">with</span>-<span class="comment">ssh2</span> <span class="comment">\</span>
+<span class="literal">-</span><span class="literal">-</span><span class="comment">prefix=/usr/local/zabbix2</span> <span class="comment">\</span>
+<span class="literal">-</span><span class="literal">-</span><span class="comment">sysconfdir=/etc/zabbix2</span>
+
+<span class="comment">make</span> <span class="comment">install</span>
+
+</pre></td></tr></table></figure>
+
+<h1>#</h1>
 
       
     </div>
