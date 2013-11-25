@@ -6,23 +6,7 @@
   <title>2013-11-26-centos6-Initialize | To be DevOps &amp; Geek</title>
   <meta name="author" content="yzhkpli">
   
-  <meta name="description" content="本文讲述centos6 64位系统的初始化过程
-配置网络
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-mv /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth0.o">
+  <meta name="description" content="本文讲述centos6 64位系统的初始化过程">
   
 
                                                       
@@ -101,7 +85,7 @@ $(function(){
     </header>
     <div class="entry">
       
-        <p>本文讲述centos6 64位系统的初始化过程</p>
+        <p>本文讲述centos6 64位系统的初始化过程<br><a id="more"></a></p>
 <h1>配置网络</h1>
 <figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
 2
@@ -136,6 +120,31 @@ TYPE=<span class="string">"Ethernet"</span>
 
 <h1>配置源</h1>
 <h2>设置163源</h2>
+<h2>设置epel源</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>rpm -Uvh http:<span class="regexp">//mi</span>rrors.sohu.com<span class="regexp">/fedora-epel/6/x86_64/</span>epel-release-<span class="number">6</span>-<span class="number">8.</span>noarch.rpm
+rpm --<span class="reserved">import</span> <span class="regexp">/etc/pki/rpm-gpg/</span>RPM-GPG-KEY-EPEL-<span class="number">6</span>
+</pre></td></tr></table></figure>
+
+
+<h1>安装基本工具软件</h1>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">nstall</span> wget vim-enhanced mlocate ntp -y
+</pre></td></tr></table></figure>
+
+<h2>同步时区</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>ntpdate jp<span class="variable">.pool</span><span class="variable">.ntp</span><span class="variable">.org</span>
+</pre></td></tr></table></figure>
+
+
+<h2>安装网络工具软件</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="comment">yum</span> <span class="comment">install</span> <span class="comment">telnet</span> <span class="literal">-</span><span class="comment">y</span>
+<span class="comment">yum</span> <span class="comment">install</span> <span class="comment">bind</span>-<span class="comment">utils</span> <span class="literal">-</span><span class="comment">y
+</pre></td></tr></table></figure>
 
       
     </div>
