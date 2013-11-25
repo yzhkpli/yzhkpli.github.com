@@ -305,6 +305,75 @@ wget <span class="symbol">http:</span>/<span class="regexp">/sourceforge.net/pro
 <span class="string">.</span><span class="comment">/mysql</span> <span class="literal">-</span><span class="comment">uroot</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">password=Asd12</span>.<span class="comment">3</span> <span class="literal">-</span><span class="comment">e"show</span> <span class="comment">databases;"
 </pre></td></tr></table></figure>
 
+
+<h2>建立主配置文件</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+</pre></td><td class="code"><pre><span class="preprocessor">#备份以前的</span>
+mv /etc/zabbix2/zabbix_server<span class="variable">.conf</span> /etc/zabbix2/zabbix_server<span class="variable">.conf</span><span class="variable">.orig</span>
+
+<span class="preprocessor">#建立新内容</span>
+<span class="preprocessor">#vim /etc/zabbix2/zabbix_server.conf</span>
+NodeID=<span class="number">0</span>
+ListenPort=<span class="number">10051</span>
+LogFile=/var/log/zabbix2/zabbix_server<span class="variable">.log</span>
+LogFileSize=<span class="number">100</span>
+
+DebugLevel=<span class="number">3</span>
+PidFile=/var/run/zabbix2/zabbix_server<span class="variable">.pid</span>
+
+DBHost=localhost
+DBName=zabbix2
+DBUser=zabbix
+DBPassword=ZbxPwD306
+DBSocket=/tmp/mysql<span class="variable">.sock</span>
+DBPort=<span class="number">3306</span>
+StartPollers=<span class="number">5</span>
+StartTrappers=<span class="number">5</span>
+ListenIP=<span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>
+SenderFrequency=<span class="number">30</span>
+AlertScriptsPath=/etc/zabbix2/alertscripts
+ExternalScripts=/etc/zabbix2/externalscripts
+FpingLocation=/usr/sbin/fping
+LogSlowQueries=<span class="number">2000</span>
+TmpDir=/tmp
+Include=/etc/zabbix2/zabbix_server<span class="variable">.conf</span><span class="variable">.d</span>/
+</pre></td></tr></table></figure>
+
+
+
+<p>再次设置属主和属组</p>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">chown</span> -R zabbix.zabbix /etc/zabbix2/
+</pre></td></tr></table></figure>
+
       
     </div>
     <footer>
