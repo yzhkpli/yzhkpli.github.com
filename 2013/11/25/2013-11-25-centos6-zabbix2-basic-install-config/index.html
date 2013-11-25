@@ -309,6 +309,14 @@ wget <span class="symbol">http:</span>/<span class="regexp">/sourceforge.net/pro
 <h2>建立主配置文件</h2>
 <figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
 2
+</pre></td><td class="code"><pre><span class="preprocessor">#备份以前的</span>
+mv /etc/zabbix2/zabbix_server<span class="variable">.conf</span> /etc/zabbix2/zabbix_server<span class="variable">.conf</span><span class="variable">.orig</span>
+</pre></td></tr></table></figure>
+
+<h1>建立新内容</h1>
+<h1>vim /etc/zabbix2/zabbix_server.conf</h1>
+<figure class="highlight lang-shell"><figcaption><span>/etc/zabbix2/zabbix_server.conf </span></figcaption><table><tr><td class="gutter"><pre>1
+2
 3
 4
 5
@@ -331,40 +339,30 @@ wget <span class="symbol">http:</span>/<span class="regexp">/sourceforge.net/pro
 22
 23
 24
-25
-26
-27
-28
-29
-</pre></td><td class="code"><pre><span class="preprocessor">#备份以前的</span>
-mv /etc/zabbix2/zabbix_server<span class="variable">.conf</span> /etc/zabbix2/zabbix_server<span class="variable">.conf</span><span class="variable">.orig</span>
+</pre></td><td class="code"><pre><span class="setting">NodeID=<span class="value"><span class="number">0</span></span></span>
+<span class="setting">ListenPort=<span class="value"><span class="number">10051</span></span></span>
+<span class="setting">LogFile=<span class="value">/var/log/zabbix2/zabbix_server.log</span></span>
+<span class="setting">LogFileSize=<span class="value"><span class="number">100</span></span></span>
 
-<span class="preprocessor">#建立新内容</span>
-<span class="preprocessor">#vim /etc/zabbix2/zabbix_server.conf</span>
-NodeID=<span class="number">0</span>
-ListenPort=<span class="number">10051</span>
-LogFile=/var/log/zabbix2/zabbix_server<span class="variable">.log</span>
-LogFileSize=<span class="number">100</span>
+<span class="setting">DebugLevel=<span class="value"><span class="number">3</span></span></span>
+<span class="setting">PidFile=<span class="value">/var/run/zabbix2/zabbix_server.pid</span></span>
 
-DebugLevel=<span class="number">3</span>
-PidFile=/var/run/zabbix2/zabbix_server<span class="variable">.pid</span>
-
-DBHost=localhost
-DBName=zabbix2
-DBUser=zabbix
-DBPassword=ZbxPwD306
-DBSocket=/tmp/mysql<span class="variable">.sock</span>
-DBPort=<span class="number">3306</span>
-StartPollers=<span class="number">5</span>
-StartTrappers=<span class="number">5</span>
-ListenIP=<span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>
-SenderFrequency=<span class="number">30</span>
-AlertScriptsPath=/etc/zabbix2/alertscripts
-ExternalScripts=/etc/zabbix2/externalscripts
-FpingLocation=/usr/sbin/fping
-LogSlowQueries=<span class="number">2000</span>
-TmpDir=/tmp
-Include=/etc/zabbix2/zabbix_server<span class="variable">.conf</span><span class="variable">.d</span>/
+<span class="setting">DBHost=<span class="value">localhost</span></span>
+<span class="setting">DBName=<span class="value">zabbix2</span></span>
+<span class="setting">DBUser=<span class="value">zabbix</span></span>
+<span class="setting">DBPassword=<span class="value">ZbxPwD306</span></span>
+<span class="setting">DBSocket=<span class="value">/tmp/mysql.sock</span></span>
+<span class="setting">DBPort=<span class="value"><span class="number">3306</span></span></span>
+<span class="setting">StartPollers=<span class="value"><span class="number">5</span></span></span>
+<span class="setting">StartTrappers=<span class="value"><span class="number">5</span></span></span>
+<span class="setting">ListenIP=<span class="value"><span class="number">0.0</span>.<span class="number">0.0</span></span></span>
+<span class="setting">SenderFrequency=<span class="value"><span class="number">30</span></span></span>
+<span class="setting">AlertScriptsPath=<span class="value">/etc/zabbix2/alertscripts</span></span>
+<span class="setting">ExternalScripts=<span class="value">/etc/zabbix2/externalscripts</span></span>
+<span class="setting">FpingLocation=<span class="value">/usr/sbin/fping</span></span>
+<span class="setting">LogSlowQueries=<span class="value"><span class="number">2000</span></span></span>
+<span class="setting">TmpDir=<span class="value">/tmp</span></span>
+<span class="setting">Include=<span class="value">/etc/zabbix2/zabbix_server.conf.d/</span></span>
 </pre></td></tr></table></figure>
 
 
