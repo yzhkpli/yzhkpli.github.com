@@ -88,7 +88,61 @@ $(function(){
     </header>
     <div class="entry">
       
-        
+        <h1>安装扩展需要的依赖库</h1>
+<h2>安装基本库</h2>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre>yum install libxml2-devel libjpeg-devel libpng-devel libtiff-devel -y
+yum install fontconfig-devel freetype-devel -y
+
+yum install libXpm-devel gettext-devel -y
+yum install pam-devel -y
+yum install libidn libidn-devel -y
+yum install e2fsprogs-devel -y
+yum install zlib-devel libgssapi-devel -y
+yum install krb5-devel -y
+yum install openssl-devel -y
+</pre></td></tr></table></figure>
+
+<h2>安装依赖库</h2>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="comment">#OpenIPMI    Required for IPMI support.</span>
+yum install OpenIPMI.x86_64 OpenIPMI-devel.x86_64 OpenIPMI-libs.x86_64 -y
+ 
+<span class="comment">#libssh2     Required for SSH support. Version 1.0 or higher.</span>
+yum install libssh2 libssh2-devel -y
+ 
+<span class="comment">#fping   Required for ICMP ping items.</span>
+yum install fping -y
+ 
+<span class="comment">#libcurl     Required for web monitoring.</span>
+yum install curl-devel libcurl.x86_64 libcurl-devel.x86_64 -y
+ 
+<span class="comment">#net-snmp    Required for SNMP support.</span>
+yum install net-snmp net-snmp-libs net-snmp-devel net-snmp-utils -y
+</pre></td></tr></table></figure>
+
       
     </div>
     <footer>
