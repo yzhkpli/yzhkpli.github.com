@@ -157,6 +157,36 @@ rpm --<span class="reserved">import</span> <span class="regexp">/etc/pki/rpm-gpg
 <span class="title">service</span> sshd restart
 </pre></td></tr></table></figure>
 
+
+<h2>安装编译用的工具软件</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="comment">yum</span> <span class="literal">-</span><span class="comment">y</span> <span class="comment">groupinstall</span> <span class="comment">"Development</span> <span class="comment">Tools"</span>
+<span class="comment">yum</span> <span class="literal">-</span><span class="comment">y</span> <span class="comment">install</span> <span class="comment">ncurses</span> <span class="comment">ncurses</span>-<span class="comment">devel</span> <span class="comment">libtool*</span> <span class="comment">zlib</span>-<span class="comment">devel</span>
+ 
+<span class="comment">yum</span> <span class="literal">-</span><span class="comment">y</span> <span class="comment">install</span> <span class="comment">libxml2</span>-<span class="comment">devel</span> <span class="comment">libjpeg</span>-<span class="comment">devel</span> <span class="comment">libpng</span>-<span class="comment">devel</span> <span class="comment">libtiff</span>-<span class="comment">devel</span> <span class="comment">fontconfig</span>-<span class="comment">devel</span> <span class="comment">freetype</span>-<span class="comment">devel</span>
+<span class="comment">yum</span> <span class="literal">-</span><span class="comment">y</span> <span class="comment">install</span> <span class="comment">libXpm</span>-<span class="comment">devel</span> <span class="comment">gettext</span>-<span class="comment">devel</span>
+  
+<span class="comment">yum</span> <span class="literal">-</span><span class="comment">y</span> <span class="comment">install</span> <span class="comment">curl</span> <span class="comment">curl</span>-<span class="comment">devel</span> <span class="comment">pam</span>-<span class="comment">devel</span> <span class="comment">e2fsprogs</span>-<span class="comment">devel</span> <span class="comment">krb5</span>-<span class="comment">devel</span> <span class="literal">-</span><span class="comment">y</span>
+<span class="comment">yum</span> <span class="literal">-</span><span class="comment">y</span> <span class="comment">install</span> <span class="comment">libidn</span> <span class="comment">libidn</span>-<span class="comment">devel</span> <span class="literal">-</span><span class="comment">y</span>
+<span class="comment">yum</span> <span class="literal">-</span><span class="comment">y</span> <span class="comment">install</span> <span class="comment">openssl</span> <span class="comment">openssl</span>-<span class="comment">devel</span> <span class="literal">-</span><span class="comment">y</span>
+<span class="comment">#yum</span> <span class="comment">install</span> <span class="comment">mcrypt</span> <span class="comment">libmcrypt</span> <span class="comment">libmcrypt</span>-<span class="comment">devel</span> <span class="comment">mhash</span> <span class="comment">mhash</span>-<span class="comment">devel</span> <span class="literal">-</span><span class="comment">y</span>
+
+<span class="comment">yum</span> <span class="comment">remove</span> <span class="comment">mysql</span>-<span class="comment">libs</span> <span class="literal">-</span><span class="comment">y</span>
+<span class="comment">yum</span> <span class="literal">-</span><span class="comment">y</span> <span class="comment">install</span> <span class="comment">crontabs
+</pre></td></tr></table></figure>
+
       
     </div>
     <footer>
