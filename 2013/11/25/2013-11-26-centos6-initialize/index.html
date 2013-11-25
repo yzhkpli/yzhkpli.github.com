@@ -3,17 +3,35 @@
 <head>
   <meta charset="utf-8">
   
-  <title>test | To be DevOps &amp; Geek</title>
+  <title>2013-11-26-centos6-Initialize | To be DevOps &amp; Geek</title>
   <meta name="author" content="yzhkpli">
   
+  <meta name="description" content="本文讲述centos6 64位系统的初始化过程
+配置网络
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+mv /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth0.o">
+  
 
-                                             
-<meta name="keywords" content="php,mysql,Linux,debian,centos">                        
+                                                      
+<meta name="keywords" content="centos6,php,mysql,Linux,debian,centos">   
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="2013-11-26-centos6-Initialize"/>
   <meta property="og:site_name" content="To be DevOps &amp; Geek"/>
 
   
@@ -49,12 +67,7 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title category">test</h2>
-
-
-  
-    <div class="alignright">
+    <div id="main-col" class="alignleft"><div id="wrapper"><div class="alignright">
 <a href="#" id="returnTop" 
      style="text-decoration:none; bottom:-200px; position:fixed; text-align:center; width:14px; margin:8px;"
      onclick="javascript:$('html, body').animate({scrollTop: 0}, {queue:false, duration:10});">↑回顶部</a>
@@ -78,17 +91,51 @@ $(function(){
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-11-19T09:37:54.000Z"><a href="/2013/11/19/xx/">11月 19 2013</a></time>
+        <time datetime="2013-11-25T03:27:01.000Z"><a href="/2013/11/25/2013-11-26-centos6-initialize/">11月 25 2013</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/11/19/xx/">xx</a></h1>
+    <h1 class="title">2013-11-26-centos6-Initialize</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>dfsdfsd</p>
+        <p>本文讲述centos6 64位系统的初始化过程</p>
+<h1>配置网络</h1>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="title">mv</span> /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth0.orig
+ 
+
+<span class="comment">#vim /etc/sysconfig/network-scripts/ifcfg-eth0</span>
+内容是
+DEVICE=<span class="string">"eth0"</span>
+BOOTPROTO=<span class="string">"static"</span>
+IPADDR=<span class="string">"192.168.0.91"</span>
+NETMASK=<span class="string">"255.255.255.0"</span>
+BROADCAST=<span class="string">"192.168.0.255"</span>
+GATEWAY=<span class="string">"192.168.0.1"</span>
+NM_CONTROLLED=<span class="string">"yes"</span>
+ONBOOT=<span class="string">"yes"</span>
+TYPE=<span class="string">"Ethernet"</span>
+</pre></td></tr></table></figure>
+
+
+<h1>配置源</h1>
+<h2>设置163源</h2>
 
       
     </div>
@@ -96,6 +143,29 @@ $(function(){
       
         
         
+  
+  <div class="tags">
+    <a href="/tags/centos6/">centos6</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
       
       <div class="clearfix"></div>
     </footer>
@@ -103,13 +173,43 @@ $(function(){
 </article>
 
 
-  
+<section id="comment">
+  <h1 class="title">留言</h1>
 
-  <nav id="pagination">
   
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://yoursite.com/2013/11/25/2013-11-26-centos6-initialize/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
   
-  <div class="clearfix"></div>
-</nav>
+</section>
+
+
+<!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yum2014"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">

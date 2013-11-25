@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>test | To be DevOps &amp; Geek</title>
+  <title>centos6 | To be DevOps &amp; Geek</title>
   <meta name="author" content="yzhkpli">
   
 
@@ -50,7 +50,7 @@
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title category">test</h2>
+<h2 class="archive-title tag">centos6</h2>
 
 
   
@@ -78,17 +78,51 @@ $(function(){
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-11-19T09:37:54.000Z"><a href="/2013/11/19/xx/">11月 19 2013</a></time>
+        <time datetime="2013-11-25T03:27:01.000Z"><a href="/2013/11/25/2013-11-26-centos6-initialize/">11月 25 2013</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/11/19/xx/">xx</a></h1>
+    <h1 class="title"><a href="/2013/11/25/2013-11-26-centos6-initialize/">2013-11-26-centos6-Initialize</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>dfsdfsd</p>
+        <p>本文讲述centos6 64位系统的初始化过程</p>
+<h1>配置网络</h1>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="title">mv</span> /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth0.orig
+ 
+
+<span class="comment">#vim /etc/sysconfig/network-scripts/ifcfg-eth0</span>
+内容是
+DEVICE=<span class="string">"eth0"</span>
+BOOTPROTO=<span class="string">"static"</span>
+IPADDR=<span class="string">"192.168.0.91"</span>
+NETMASK=<span class="string">"255.255.255.0"</span>
+BROADCAST=<span class="string">"192.168.0.255"</span>
+GATEWAY=<span class="string">"192.168.0.1"</span>
+NM_CONTROLLED=<span class="string">"yes"</span>
+ONBOOT=<span class="string">"yes"</span>
+TYPE=<span class="string">"Ethernet"</span>
+</pre></td></tr></table></figure>
+
+
+<h1>配置源</h1>
+<h2>设置163源</h2>
 
       
     </div>
