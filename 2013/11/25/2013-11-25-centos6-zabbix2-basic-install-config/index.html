@@ -309,12 +309,15 @@ wget <span class="symbol">http:</span>/<span class="regexp">/sourceforge.net/pro
 <h2>建立主配置文件</h2>
 <figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
 2
+3
+4
 </pre></td><td class="code"><pre><span class="preprocessor">#备份以前的</span>
 mv /etc/zabbix2/zabbix_server<span class="variable">.conf</span> /etc/zabbix2/zabbix_server<span class="variable">.conf</span><span class="variable">.orig</span>
+<span class="preprocessor">#建立新内容</span>
+vim /etc/zabbix2/zabbix_server<span class="variable">.conf</span>
 </pre></td></tr></table></figure>
 
-<h1>建立新内容</h1>
-<h1>vim /etc/zabbix2/zabbix_server.conf</h1>
+<p>内容是</p>
 <figure class="highlight lang-shell"><figcaption><span>/etc/zabbix2/zabbix_server.conf </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
