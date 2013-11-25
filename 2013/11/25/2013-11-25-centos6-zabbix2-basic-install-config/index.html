@@ -374,6 +374,172 @@ Include=/etc/zabbix2/zabbix_server<span class="variable">.conf</span><span class
 </pre></td><td class="code"><pre><span class="title">chown</span> -R zabbix.zabbix /etc/zabbix2/
 </pre></td></tr></table></figure>
 
+
+<h2>建立启动脚本</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+</pre></td><td class="code"><pre><span class="comment">#vim /etc/init.d/zabbix2_server</span>
+ 
+<span class="shebang">#!/bin/bash</span>
+<span class="comment">#</span>
+<span class="comment">#       /etc/rc.d/init.d/zabbix_server</span>
+<span class="comment">#</span>
+<span class="comment"># Starts the zabbix_server daemon</span>
+<span class="comment">#</span>
+<span class="comment"># chkconfig: - 95 5</span>
+<span class="comment"># description: Zabbix Monitoring Server</span>
+<span class="comment"># processname: zabbix_server</span>
+<span class="comment"># pidfile: /tmp/zabbix_server.pid</span>
+ 
+<span class="comment"># Modified for Zabbix 2.0.0</span>
+<span class="comment"># May 2012, Zabbix SIA</span>
+ 
+<span class="comment"># Source function library.</span>
+ 
+. /etc/init.d/functions
+ 
+RETVAL=0
+prog=<span class="string">"Zabbix Server"</span>
+ZABBIX_BIN=<span class="string">"/usr/local/zabbix2/sbin/zabbix_server"</span>
+ 
+<span class="keyword">if</span> <span class="test_condition">[ ! -x <span class="variable">${ZABBIX_BIN}</span> ]</span> ; <span class="keyword">then</span>
+        <span class="keyword">echo</span> -n <span class="string">"<span class="variable">${ZABBIX_BIN}</span> not installed! "</span>
+        <span class="comment"># Tell the user this has skipped</span>
+        <span class="keyword">exit</span> 5
+<span class="keyword">fi</span>
+ 
+start() {
+        <span class="keyword">echo</span> -n $<span class="string">"Starting <span class="variable">$prog</span>: "</span>
+        daemon <span class="string">"<span class="variable">$ZABBIX_BIN</span> --config /etc/zabbix2/zabbix_server.conf"</span>
+        RETVAL=$?
+        <span class="test_condition">[ <span class="variable">$RETVAL</span> -eq 0 ]</span> &amp;&amp; touch /var/lock/subsys/zabbix_server
+        <span class="keyword">echo</span>
+}
+ 
+stop() {
+        <span class="keyword">echo</span> -n $<span class="string">"Stopping <span class="variable">$prog</span>: "</span>
+        killproc <span class="variable">$ZABBIX_BIN</span>
+        RETVAL=$?
+        <span class="test_condition">[ <span class="variable">$RETVAL</span> -eq 0 ]</span> &amp;&amp; rm -f /var/lock/subsys/zabbix_server
+        <span class="keyword">echo</span>
+}
+ 
+case <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span>
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  reload|restart)
+        stop
+        sleep 10
+        start
+        RETVAL=$?
+        ;;
+  condrestart)
+        <span class="keyword">if</span> <span class="test_condition">[ -f /var/lock/subsys/zabbix_server ]</span>; <span class="keyword">then</span>
+            stop
+            start
+        <span class="keyword">fi</span>
+        ;;
+  status)
+        status <span class="variable">$ZABBIX_BIN</span>
+        RETVAL=$?
+        ;;
+  *)
+        <span class="keyword">echo</span> $<span class="string">"Usage: <span class="variable">$0</span> {condrestart|start|stop|restart|reload|status}"</span>
+        <span class="keyword">exit</span> 1
+esac
+ 
+<span class="keyword">exit</span> <span class="variable">$RETVAL</span>
+
+<span class="comment">#赋予权限</span>
+chmod +x /etc/init.d/zabbix2_server
+
+<span class="comment">#启动服务端</span>
+/etc/init.d/zabbix2_server start
+</pre></td></tr></table></figure>
+
       
     </div>
     <footer>
