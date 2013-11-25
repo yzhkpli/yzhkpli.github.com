@@ -246,7 +246,64 @@ wget <span class="symbol">http:</span>/<span class="regexp">/sourceforge.net/pro
 
 </pre></td></tr></table></figure>
 
-<h1>#</h1>
+<h2>查看安装目录</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre># tree -d /usr/<span class="keyword">local</span>/zabbix2/
+/usr/<span class="keyword">local</span>/zabbix2/
+├── bin
+├── lib
+├── sbin
+└── share
+    ├── man
+    │ ├── man1
+    │ └── man8
+    └── zabbix
+        ├── alertscripts
+        └── externalscripts
+
+<span class="number">10</span> directories
+</pre></td></tr></table></figure>
+
+
+<h2>数据库的初始化</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="comment">cd</span> <span class="comment">/usr/local/mysql56/bin/</span>
+
+<span class="string">.</span><span class="comment">/mysql</span> <span class="literal">-</span><span class="comment">uroot</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">password=Asd12</span>.<span class="comment">3</span> <span class="literal">-</span><span class="comment">e"create</span> <span class="comment">database</span> <span class="comment">if</span> <span class="comment">not</span> <span class="comment">exists</span> <span class="comment">zabbix2</span> <span class="comment">default</span> <span class="comment">charset</span> <span class="comment">utf8</span> <span class="comment">collate</span> <span class="comment">utf8_general_ci;"</span>
+<span class="string">.</span><span class="comment">/mysql</span> <span class="literal">-</span><span class="comment">uroot</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">password=Asd12</span>.<span class="comment">3</span> <span class="literal">-</span><span class="comment">e"grant</span> <span class="comment">all</span> <span class="comment">privileges</span> <span class="comment">on</span> <span class="comment">zabbix2</span>.<span class="comment">*</span> <span class="comment">to</span> <span class="comment">zabbix@localhost</span> <span class="comment">identified</span> <span class="comment">by</span> <span class="comment">'ZbxPwD306';flush</span> <span class="comment">privileges;"</span>
+ 
+<span class="string">.</span><span class="comment">/mysql</span> <span class="literal">-</span><span class="comment">D</span> <span class="comment">zabbix2</span> <span class="literal">-</span><span class="comment">uzabbix</span> <span class="literal">-</span><span class="comment">pZbxPwD306</span> &lt; <span class="comment">/usr/local/src/lemppackages/zabbix_src/zabbix</span>-<span class="comment">2</span>.<span class="comment">2</span>.<span class="comment">0/database/mysql/schema</span>.<span class="comment">sql</span>
+<span class="string">.</span><span class="comment">/mysql</span> <span class="literal">-</span><span class="comment">D</span> <span class="comment">zabbix2</span> <span class="literal">-</span><span class="comment">uzabbix</span> <span class="literal">-</span><span class="comment">pZbxPwD306</span> &lt; <span class="comment">/usr/local/src/lemppackages/zabbix_src/zabbix</span>-<span class="comment">2</span>.<span class="comment">2</span>.<span class="comment">0/database/mysql/images</span>.<span class="comment">sql</span>
+<span class="string">.</span><span class="comment">/mysql</span> <span class="literal">-</span><span class="comment">D</span> <span class="comment">zabbix2</span> <span class="literal">-</span><span class="comment">uzabbix</span> <span class="literal">-</span><span class="comment">pZbxPwD306</span> &lt; <span class="comment">/usr/local/src/lemppackages/zabbix_src/zabbix</span>-<span class="comment">2</span>.<span class="comment">2</span>.<span class="comment">0/database/mysql/data</span>.<span class="comment">sql</span>
+
+
+<span class="comment">#而后验证一下</span>
+<span class="string">.</span><span class="comment">/mysql</span> <span class="literal">-</span><span class="comment">uroot</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">password=Asd12</span>.<span class="comment">3</span> <span class="literal">-</span><span class="comment">e"show</span> <span class="comment">databases;"
+</pre></td></tr></table></figure>
 
       
     </div>
