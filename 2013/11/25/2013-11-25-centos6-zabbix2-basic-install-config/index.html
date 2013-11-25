@@ -375,6 +375,7 @@ Include=/etc/zabbix2/zabbix_server<span class="variable">.conf</span><span class
 </pre></td></tr></table></figure>
 
 
+<h1>安装完成后的配置</h1>
 <h2>建立启动脚本</h2>
 <figure class="highlight lang-shell"><figcaption><span>/etc/init.d/zabbix2_server </span></figcaption><table><tr><td class="gutter"><pre>1
 2
@@ -538,6 +539,28 @@ chmod +x /etc/init.d/zabbix2_server
 
 <span class="comment">#启动服务端</span>
 /etc/init.d/zabbix2_server start
+</pre></td></tr></table></figure>
+
+
+<h2>检查进程和端口</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="preprocessor">#检查系统内进程数量</span>
+<span class="preprocessor"># ps -ef|grep zabbix|grep -v grep|wc -l</span>
+<span class="number">27</span>
+<span class="preprocessor">#检查系统内开放的端口</span>
+<span class="preprocessor"># netstat -ntulp|grep zabbix</span>
+tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">10051</span>               <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:*                  <span class="constant"> LISTEN </span>     <span class="number">3712</span>/zabbix_server  
+
+<span class="preprocessor"># ls -alhc /var/lock/subsys/zabbix_server</span>
+-rw-r--r--. <span class="number">1</span> root root <span class="number">0</span> Jun  <span class="number">9</span> <span class="number">21</span>:<span class="number">50</span> /<span class="keyword">var</span>/lock/subsys/zabbix_server
 </pre></td></tr></table></figure>
 
       
