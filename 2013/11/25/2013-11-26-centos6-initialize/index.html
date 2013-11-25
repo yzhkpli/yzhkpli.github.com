@@ -187,6 +187,11 @@ rpm --<span class="reserved">import</span> <span class="regexp">/etc/pki/rpm-gpg
 <span class="comment">yum</span> <span class="literal">-</span><span class="comment">y</span> <span class="comment">install</span> <span class="comment">crontabs
 </pre></td></tr></table></figure>
 
+<h2>关闭selinux</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">sed</span> -i <span class="string">'s/SELINUX=enforcing/SELINUX=disabled/'</span> /etc/selinux/config
+</pre></td></tr></table></figure>
+
       
     </div>
     <footer>
