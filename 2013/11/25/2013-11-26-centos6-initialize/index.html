@@ -146,6 +146,17 @@ rpm --<span class="reserved">import</span> <span class="regexp">/etc/pki/rpm-gpg
 <span class="comment">yum</span> <span class="comment">install</span> <span class="comment">bind</span>-<span class="comment">utils</span> <span class="literal">-</span><span class="comment">y
 </pre></td></tr></table></figure>
 
+
+<h2>配置ssh</h2>
+<p>SSH配置 关闭GSSAPIAuth和DNS反解析,提供ssh连接速度</p>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="title">sed</span> -i<span class="string"> 's/^GSSAPIAuthentication yes$/GSSAPIAuthentication no/'</span> /etc/ssh/sshd_config
+<span class="title">sed</span> -i<span class="string"> 's/#UseDNS yes/UseDNS no/'</span> /etc/ssh/sshd_config
+<span class="title">service</span> sshd restart
+</pre></td></tr></table></figure>
+
       
     </div>
     <footer>
