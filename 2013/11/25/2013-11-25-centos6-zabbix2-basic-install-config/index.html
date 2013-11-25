@@ -142,6 +142,57 @@ yum install curl-devel libcurl.x86_64 libcurl-devel.x86_64 -y
 yum install net-snmp net-snmp-libs net-snmp-devel net-snmp-utils -y
 </pre></td></tr></table></figure>
 
+
+<h1>安装Mysql服务器</h1>
+<h1>添加zabbix需要的用户和目录</h1>
+<h1>添加用户和组</h1>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>groupadd zabbix
+useradd -g zabbix -M -s /bin/bash zabbix
+</pre></td></tr></table></figure>
+
+<h1>建立目录</h1>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="code"><pre><span class="comment">#建立zabbix2源代码存放的目录</span>
+mkdir -p /usr/local/src/lemppackages/zabbix_src
+<span class="comment">#建立zabbix2的模板文件的目录</span>
+mkdir -p /usr/local/src/lemppackages/zabbix_src/templates
+<span class="comment">#建立zabbix的配置目录</span>
+mkdir -p /etc/zabbix2/
+mkdir -p /etc/zabbix2/alertscripts
+mkdir -p /etc/zabbix2/externalscripts
+mkdir -p /etc/zabbix2/zabbix_server.conf.d
+mkdir -p /etc/zabbix2/zabbix_agentd.conf.d
+<span class="comment">#建立日志目录</span>
+mkdir -p /var/log/zabbix2
+
+<span class="comment">#建立pid目录</span>
+mkdir -p /var/run/zabbix2
+<span class="comment">#设置目录的权限</span>
+chown -R zabbix.zabbix /etc/zabbix2/
+chown zabbix.zabbix /var/log/zabbix2
+chown zabbix.zabbix /var/run/zabbix2
+</pre></td></tr></table></figure>
+
       
     </div>
     <footer>
