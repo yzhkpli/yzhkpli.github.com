@@ -3,373 +3,410 @@
 <head>
   <meta charset="utf-8">
   
-  <title>彙整：2013 | To be DevOps &amp; Geek</title>
+  <title>归档：2013 | To be DevOps &amp; Geek</title>
   <meta name="author" content="yzhkpli">
-
   
   
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+  
+  <meta property="og:site_name" content="To be DevOps &amp; Geek"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
   <link rel="alternate" href="/atom.xml" title="To be DevOps &amp; Geek" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/stylesheets/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/stylesheets/social_foundicons.css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-1.8.3.min.js"></script>
   
 </head>
 
+
 <body>
-  <header id="header" class="inner"><nav>
-  <ul>
-    
-      <li><a href="/">Home</a></li>
-    
-      <li><a href="/archives">Archives</a></li>
-    
-  </ul>
-</nav></header>
-  <div id="content" class="inner">
+        <script type="text/javascript">
+        /**
+         * 回到页面顶部
+         * @param acceleration 加速度
+         * @param time 时间间隔 (毫秒)
+         **/
+        function goTop(acceleration, time) {
+            acceleration = acceleration || 0.1;
+            time = time || 16;
 
-<header id="archive-header">
-  <h1 class="alignleft">彙整：2013</h1>
-  <div class="search alignright">
-    <form action="http://google.com/search" method="get" accept-charset="utf-8">
-      <input type="search" name="q" results="0" placeholder="搜尋">
-      <input type="hidden" name="q" value="site:yoursite.com">
-    </form>
-  </div>
-</header>
+            var x1 = 0;
+            var y1 = 0;
+            var x2 = 0;
+            var y2 = 0;
+            var x3 = 0;
+            var y3 = 0;
+
+            if (document.documentElement) {
+                x1 = document.documentElement.scrollLeft || 0;
+                y1 = document.documentElement.scrollTop || 0;
+            }
+            if (document.body) {
+                x2 = document.body.scrollLeft || 0;
+                y2 = document.body.scrollTop || 0;
+            }
+            var x3 = window.scrollX || 0;
+            var y3 = window.scrollY || 0;
+
+            // 滚动条到页面顶部的水平距离
+            var x = Math.max(x1, Math.max(x2, x3));
+            // 滚动条到页面顶部的垂直距离
+            var y = Math.max(y1, Math.max(y2, y3));
+
+            // 滚动距离 = 目前距离 / 速度, 因为距离原来越小, 速度是大于 1 的数, 所以滚动距离会越来越小
+            var speed = 1 + acceleration;
+            window.scrollTo(Math.floor(x / speed), Math.floor(y / speed));
+
+            // 如果距离不为零, 继续调用迭代本函数
+            if(x > 0 || y > 0) {
+                var invokeFunction = "goTop(" + acceleration + ", " + time + ")";
+                window.setTimeout(invokeFunction, time);
+            }
+        }
+    </script>
+    <a href="#" onclick="goTop();return false;" class="backTop">▲</a>
+        <header>
+            <div class="wrapper">
+                <div class="center">
+                    <div class="searchBox"></div>
+                    <div class="headerMenu">
+                        <ul>
+                            
+                            <li><a href="/">Home</a></li>
+                            
+                            <li><a href="/archives">Archives</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="socnets">
+                        
+                        
+                        <a href="/atom.xml" alt="rss"><i class="foundicon-rss"></i></a>
+                        
+                        <a href="mailto:yzhkpli@gmail.com"><i class="foundicon-chat"></i></a>
+                        
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main">
+                        <div class="brand">
+                <div class="wide">
+                    <div class="center">
+                        <h1>
+                            <a href="/">To be DevOps &amp; Geek</a>
+                        </h1>
+                        <p>
+                            2014年哥就三十五岁了,时不我待
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
 
 
   
-    <article class="post">
+    <div class="wide">
+    <div class="center">
+        <div class="head">
+            <div class="timeLine">
+                <time datetime="2013-11-25T04:08:25.000Z" class="date">
+                    <a href="/2013/11/25/2013-11-25-centos6-zabbix2-basic-install-config/">11月 25 2013</a>
+                </time>
+            </div>
+        </div>
+        
   
-  <header>
-    
-  
-    <h1 class="title"><a href="/2013/11/25/2013-11-25-centos6-zabbix2-basic-install-config/">2013-11-25-centos6-zabbix2-basic-install-config</a></h1>
+    <h2 class="title"><a href="/2013/11/25/2013-11-25-centos6-zabbix2-basic-install-config/">2013-11-25-centos6-zabbix2-basic-install-config</a></h1>
   
 
-    <time datetime="2013-11-25T04:08:25.000Z">
-  <span class="day">25</span><span class="month">11月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>本文介绍了在centos6环境中编译安装zabbix2的方法</p>
+        <div class="entry">
+        
+          <p>本文介绍了在centos6环境中编译安装zabbix2的方法</p>
 <p>
-    
-    
-    <footer class="meta">
-      
-      
-  <div class="tags">
-<a href="/tags/centos6/">centos6</a><a href="/tags/zabbix2/">zabbix2</a><a href="/tags/monitor/">monitor</a></div>
-
-      
-    </footer>
-    
-  </div>
+        
+        
+          
+          <a href="/2013/11/25/2013-11-25-centos6-zabbix2-basic-install-config/#more" class="more-link">More</a>
+          
+        
+        </div>
+    </div>
+</div>
+                
   
-</article>
+    <div class="wide">
+    <div class="center">
+        <div class="head">
+            <div class="timeLine">
+                <time datetime="2013-11-25T03:27:01.000Z" class="date">
+                    <a href="/2013/11/25/2013-11-25-centos6-initialize/">11月 25 2013</a>
+                </time>
+            </div>
+        </div>
+        
   
-    <article class="post">
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2013/11/25/2013-11-25-centos6-initialize/">2013-11-25-centos6-Initialize</a></h1>
-  
-
-    <time datetime="2013-11-25T03:27:01.000Z">
-  <span class="day">25</span><span class="month">11月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>本文讲述centos6 64位系统的初始化过程<br>
-    
-    
-    <footer class="meta">
-      
-      
-  <div class="tags">
-<a href="/tags/centos6/">centos6</a></div>
-
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2013/11/20/2013-11-20-hexo-writing/">2013-11-20-hexo-writing</a></h1>
+    <h2 class="title"><a href="/2013/11/25/2013-11-25-centos6-initialize/">2013-11-25-centos6-Initialize</a></h1>
   
 
-    <time datetime="2013-11-20T10:25:11.000Z">
-  <span class="day">20</span><span class="month">11月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>主要是markdown的语法<br>
-    
-    
-    <footer class="meta">
-      
-      
-  <div class="tags">
-<a href="/tags/hexo/">hexo</a></div>
-
-      
-    </footer>
-    
-  </div>
+        <div class="entry">
+        
+          <p>本文讲述centos6 64位系统的初始化过程<br>
+        
+        
+          
+          <a href="/2013/11/25/2013-11-25-centos6-initialize/#more" class="more-link">More</a>
+          
+        
+        </div>
+    </div>
+</div>
+                
   
-</article>
+    <div class="wide">
+    <div class="center">
+        <div class="head">
+            <div class="timeLine">
+                <time datetime="2013-11-20T10:25:11.000Z" class="date">
+                    <a href="/2013/11/20/2013-11-20-hexo-writing/">11月 20 2013</a>
+                </time>
+            </div>
+        </div>
+        
   
-    <article class="post">
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2013/11/20/2013-11-20-pi-use/">2013-11-20-pi-use</a></h1>
+    <h2 class="title"><a href="/2013/11/20/2013-11-20-hexo-writing/">2013-11-20-hexo-writing</a></h1>
   
 
-    <time datetime="2013-11-20T08:16:02.000Z">
-  <span class="day">20</span><span class="month">11月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>本文讲述pi的各种使用状况<br>pi的正面图片<br><img src="http://ww4.sinaimg.cn/large/9b9483d3jw1earjz4ndikj20fa0a5ab5.jpg" alt=""><br>
-    
-    
-    <footer class="meta">
-      
-      
-  <div class="tags">
-<a href="/tags/pi/">pi</a><a href="/tags/debian/">debian</a></div>
-
-      
-    </footer>
-    
-  </div>
+        <div class="entry">
+        
+          <p>主要是markdown的语法<br>
+        
+        
+          
+          <a href="/2013/11/20/2013-11-20-hexo-writing/#more" class="more-link">More</a>
+          
+        
+        </div>
+    </div>
+</div>
+                
   
-</article>
+    <div class="wide">
+    <div class="center">
+        <div class="head">
+            <div class="timeLine">
+                <time datetime="2013-11-20T08:16:02.000Z" class="date">
+                    <a href="/2013/11/20/2013-11-20-pi-use/">11月 20 2013</a>
+                </time>
+            </div>
+        </div>
+        
   
-    <article class="post">
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2013/11/20/2013-11-20-pi-setup/">2013-11-20-pi-setup</a></h1>
+    <h2 class="title"><a href="/2013/11/20/2013-11-20-pi-use/">2013-11-20-pi-use</a></h1>
   
 
-    <time datetime="2013-11-20T07:44:50.000Z">
-  <span class="day">20</span><span class="month">11月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>pi的各种参数和使用见<a href="http://yum2014.info/2013/11/20/2013-11-20-pi-use/" target="_blank">这里</a></p>
+        <div class="entry">
+        
+          <p>本文讲述pi的各种使用状况<br>pi的正面图片<br><img src="http://ww4.sinaimg.cn/large/9b9483d3jw1earjz4ndikj20fa0a5ab5.jpg" alt=""><br>
+        
+        
+          
+          <a href="/2013/11/20/2013-11-20-pi-use/#more" class="more-link">More</a>
+          
+        
+        </div>
+    </div>
+</div>
+                
+  
+    <div class="wide">
+    <div class="center">
+        <div class="head">
+            <div class="timeLine">
+                <time datetime="2013-11-20T07:44:50.000Z" class="date">
+                    <a href="/2013/11/20/2013-11-20-pi-setup/">11月 20 2013</a>
+                </time>
+            </div>
+        </div>
+        
+  
+    <h2 class="title"><a href="/2013/11/20/2013-11-20-pi-setup/">2013-11-20-pi-setup</a></h1>
+  
+
+        <div class="entry">
+        
+          <p>pi的各种参数和使用见<a href="http://yum2014.info/2013/11/20/2013-11-20-pi-use/" target="_blank">这里</a></p>
 <p>本文讲述的是pi上安装和配置debian linux系统的基本方法。<br>
-    
-    
-    <footer class="meta">
-      
-      
-  <div class="tags">
-<a href="/tags/pi/">pi</a><a href="/tags/debian/">debian</a></div>
+        
+        
+          
+          <a href="/2013/11/20/2013-11-20-pi-setup/#more" class="more-link">More</a>
+          
+        
+        </div>
+    </div>
+</div>
+                
+  
+    <div class="wide">
+    <div class="center">
+        <div class="head">
+            <div class="timeLine">
+                <time datetime="2013-11-19T12:04:20.000Z" class="date">
+                    <a href="/2013/11/19/2013-11-19-pi-hexo-setup/">11月 19 2013</a>
+                </time>
+            </div>
+        </div>
+        
+  
+    <h2 class="title"><a href="/2013/11/19/2013-11-19-pi-hexo-setup/">2013-11-19-pi-hexo</a></h1>
+  
 
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2013/11/19/2013-11-19-pi-hexo-setup/">2013-11-19-pi-hexo</a></h1>
-  
-
-    <time datetime="2013-11-19T12:04:20.000Z">
-  <span class="day">19</span><span class="month">11月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <ul>
+        <div class="entry">
+        
+          <ul>
 <li><a href="http://github.com/tommy351/hexo" target="_blank">http://github.com/tommy351/hexo</a></li>
 <li>官网 <a href="http://zespia.tw/hexo" target="_blank">http://zespia.tw/hexo</a></li>
 <li>作者 <a href="https://twitter.com/tommy351" target="_blank">https://twitter.com/tommy351</a><br>
-    
-    
-    <footer class="meta">
-      
-      
-  <div class="tags">
-<a href="/tags/pi/">pi</a><a href="/tags/hexo/">hexo</a><a href="/tags/github/">github</a></div>
-
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2013/11/19/2013-11-19-debian7-apt-mysql-nginx-php/">2013-11-19-Debian7-apt-Mysql-Nginx-PHP</a></h1>
-  
-
-    <time datetime="2013-11-19T11:17:35.000Z">
-  <span class="day">19</span><span class="month">11月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>本文介绍在Debian7上使用包管理安装mysql,nginx和php环境的经过.<br>
-    
-    
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/debian/">debian</a></div>
-
-      
-  <div class="tags">
-<a href="/tags/debian/">debian</a><a href="/tags/mysql/">mysql</a><a href="/tags/nginx/">nginx</a><a href="/tags/php/">php</a></div>
-
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2013/11/19/xx/">xx</a></h1>
-  
-
-    <time datetime="2013-11-19T09:37:54.000Z">
-  <span class="day">19</span><span class="month">11月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>dfsdfsd</p>
-
-    
-    
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/test/">test</a></div>
-
-      
-  <div class="tags">
-<a href="/tags/test/">test</a></div>
-
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2013/11/18/2013-11-18-debian7-initialize/">2013-11-18-Debian7-Initialize</a></h1>
-  
-
-    <time datetime="2013-11-18T11:55:33.000Z">
-  <span class="day">18</span><span class="month">11月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>debian系统是<br>本文讲述debian7 x64 系统下的系统初始化。包括设置ip，设置源，安装基本的工具软件等。<br>
-    
-    
-    <footer class="meta">
-      
-      
-  <div class="tags">
-<a href="/tags/debian/">debian</a></div>
-
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2013/11/18/hello-world/">Hello World</a></h1>
-  
-
-    <time datetime="2013-11-18T11:53:58.000Z">
-  <span class="day">18</span><span class="month">11月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>Welcome to <a href="http://zespia.tw/hexo" target="_blank">Hexo</a>! This is your very first post. Check <a href="http://zespia.tw/hexo/docs" target="_blank">documentation</a> to learn how to use.</p>
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-
-  <nav id="pagenavi">
-  
-  
-  <div class="clearfix"></div>
-</nav>
+        
+        
+          
+          <a href="/2013/11/19/2013-11-19-pi-hexo-setup/#more" class="more-link">More</a>
+          
+        
+        </div>
+    </div>
 </div>
-  <footer id="footer" class="inner"><div class="social alignright">
+                
   
+    <div class="wide">
+    <div class="center">
+        <div class="head">
+            <div class="timeLine">
+                <time datetime="2013-11-19T11:17:35.000Z" class="date">
+                    <a href="/2013/11/19/2013-11-19-debian7-apt-mysql-nginx-php/">11月 19 2013</a>
+                </time>
+            </div>
+        </div>
+        
   
+    <h2 class="title"><a href="/2013/11/19/2013-11-19-debian7-apt-mysql-nginx-php/">2013-11-19-Debian7-apt-Mysql-Nginx-PHP</a></h1>
   
-  
-  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+
+        <div class="entry">
+        
+          <p>本文介绍在Debian7上使用包管理安装mysql,nginx和php环境的经过.<br>
+        
+        
+          
+          <a href="/2013/11/19/2013-11-19-debian7-apt-mysql-nginx-php/#more" class="more-link">More</a>
+          
+        
+        </div>
+    </div>
 </div>
-<p>
+                
+  
+    <div class="wide">
+    <div class="center">
+        <div class="head">
+            <div class="timeLine">
+                <time datetime="2013-11-19T09:37:54.000Z" class="date">
+                    <a href="/2013/11/19/xx/">11月 19 2013</a>
+                </time>
+            </div>
+        </div>
+        
+  
+    <h2 class="title"><a href="/2013/11/19/xx/">xx</a></h1>
+  
+
+        <div class="entry">
+        
+          <p>dfsdfsd</p>
+
+        
+        
+          
+        
+        </div>
+    </div>
+</div>
+                
+  
+    <div class="wide">
+    <div class="center">
+        <div class="head">
+            <div class="timeLine">
+                <time datetime="2013-11-18T11:55:33.000Z" class="date">
+                    <a href="/2013/11/18/2013-11-18-debian7-initialize/">11月 18 2013</a>
+                </time>
+            </div>
+        </div>
+        
+  
+    <h2 class="title"><a href="/2013/11/18/2013-11-18-debian7-initialize/">2013-11-18-Debian7-Initialize</a></h1>
+  
+
+        <div class="entry">
+        
+          <p>debian系统是<br>本文讲述debian7 x64 系统下的系统初始化。包括设置ip，设置源，安装基本的工具软件等。<br>
+        
+        
+          
+          <a href="/2013/11/18/2013-11-18-debian7-initialize/#more" class="more-link">More</a>
+          
+        
+        </div>
+    </div>
+</div>
+                
+  
+    <div class="wide">
+    <div class="center">
+        <div class="head">
+            <div class="timeLine">
+                <time datetime="2013-11-18T11:53:58.000Z" class="date">
+                    <a href="/2013/11/18/hello-world/">11月 18 2013</a>
+                </time>
+            </div>
+        </div>
+        
+  
+    <h2 class="title"><a href="/2013/11/18/hello-world/">Hello World</a></h1>
+  
+
+        <div class="entry">
+        
+          <p>Welcome to <a href="http://zespia.tw/hexo" target="_blank">Hexo</a>! This is your very first post. Check <a href="http://zespia.tw/hexo/docs" target="_blank">documentation</a> to learn how to use.</p>
+
+        
+        
+          
+        
+        </div>
+    </div>
+</div>
+                
+  
+
+                  
+</div>
+        </div>
+
+  <footer>
   
   &copy; 2013 yzhkpli
   
-</p>
-<div class="clearfix"></div></footer>
+</footer>
   <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
@@ -384,12 +421,5 @@
 })(jQuery);
 </script>
 
-
-<div id="phasebeam">
-  <canvas></canvas>
-  <canvas></canvas>
-  <canvas></canvas>
-</div>
-<script src="/js/phasebeam.js"></script>
 </body>
 </html>

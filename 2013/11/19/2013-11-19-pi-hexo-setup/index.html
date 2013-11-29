@@ -5,46 +5,132 @@
   
   <title>2013-11-19-pi-hexo | To be DevOps &amp; Geek</title>
   <meta name="author" content="yzhkpli">
-
   
   <meta name="description" content="http://github.com/tommy351/hexo
 官网 http://zespia.tw/hexo
 作者 https://twitter.com/tommy351">
   
   <meta name="keywords" content="pi,hexo">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+  <meta property="og:title" content="2013-11-19-pi-hexo"/>
+  <meta property="og:site_name" content="To be DevOps &amp; Geek"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
   <link rel="alternate" href="/atom.xml" title="To be DevOps &amp; Geek" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/stylesheets/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/stylesheets/social_foundicons.css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-1.8.3.min.js"></script>
   
 </head>
 
+
 <body>
-  <header id="header" class="inner"><nav>
-  <ul>
-    
-      <li><a href="/">Home</a></li>
-    
-      <li><a href="/archives">Archives</a></li>
-    
-  </ul>
-</nav></header>
-  <div id="content" class="inner"><article class="post">
+        <script type="text/javascript">
+        /**
+         * 回到页面顶部
+         * @param acceleration 加速度
+         * @param time 时间间隔 (毫秒)
+         **/
+        function goTop(acceleration, time) {
+            acceleration = acceleration || 0.1;
+            time = time || 16;
+
+            var x1 = 0;
+            var y1 = 0;
+            var x2 = 0;
+            var y2 = 0;
+            var x3 = 0;
+            var y3 = 0;
+
+            if (document.documentElement) {
+                x1 = document.documentElement.scrollLeft || 0;
+                y1 = document.documentElement.scrollTop || 0;
+            }
+            if (document.body) {
+                x2 = document.body.scrollLeft || 0;
+                y2 = document.body.scrollTop || 0;
+            }
+            var x3 = window.scrollX || 0;
+            var y3 = window.scrollY || 0;
+
+            // 滚动条到页面顶部的水平距离
+            var x = Math.max(x1, Math.max(x2, x3));
+            // 滚动条到页面顶部的垂直距离
+            var y = Math.max(y1, Math.max(y2, y3));
+
+            // 滚动距离 = 目前距离 / 速度, 因为距离原来越小, 速度是大于 1 的数, 所以滚动距离会越来越小
+            var speed = 1 + acceleration;
+            window.scrollTo(Math.floor(x / speed), Math.floor(y / speed));
+
+            // 如果距离不为零, 继续调用迭代本函数
+            if(x > 0 || y > 0) {
+                var invokeFunction = "goTop(" + acceleration + ", " + time + ")";
+                window.setTimeout(invokeFunction, time);
+            }
+        }
+    </script>
+    <a href="#" onclick="goTop();return false;" class="backTop">▲</a>
+        <header>
+            <div class="wrapper">
+                <div class="center">
+                    <div class="searchBox"></div>
+                    <div class="headerMenu">
+                        <ul>
+                            
+                            <li><a href="/">Home</a></li>
+                            
+                            <li><a href="/archives">Archives</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="socnets">
+                        
+                        
+                        <a href="/atom.xml" alt="rss"><i class="foundicon-rss"></i></a>
+                        
+                        <a href="mailto:yzhkpli@gmail.com"><i class="foundicon-chat"></i></a>
+                        
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main">
+                        <div class="brand">
+                <div class="wide">
+                    <div class="center">
+                        <h1>
+                            <a href="/">To be DevOps &amp; Geek</a>
+                        </h1>
+                        <p>
+                            2014年哥就三十五岁了,时不我待
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="content"><div class="wide">
+    <div class="center">
+        <div class="head">
+            <div class="timeLine">
+                <time datetime="2013-11-19T12:04:20.000Z" class="date">
+                    <a href="/2013/11/19/2013-11-19-pi-hexo-setup/">11月 19 2013</a>
+                </time>
+            </div>
+        </div>
+        
   
-  <header>
-    
-  
-    <h1 class="title">2013-11-19-pi-hexo</h1>
+    <h2 class="title">2013-11-19-pi-hexo</h1>
   
 
-    <time datetime="2013-11-19T12:04:20.000Z">
-  <span class="day">19</span><span class="month">11月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <ul>
+        <div class="entry">
+        
+          <ul>
 <li><a href="http://github.com/tommy351/hexo" target="_blank">http://github.com/tommy351/hexo</a></li>
 <li>官网 <a href="http://zespia.tw/hexo" target="_blank">http://zespia.tw/hexo</a></li>
 <li>作者 <a href="https://twitter.com/tommy351" target="_blank">https://twitter.com/tommy351</a><br><a id="more"></a><h1>安装</h1>
@@ -164,33 +250,19 @@ yum2014.info
 </pre></td><td class="code"><pre><span class="comment">hexo</span> <span class="comment">deploy</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">generate
 </pre></td></tr></table></figure>
 
-    
-    
-    <footer class="meta">
-      
-      
-  <div class="tags">
-<a href="/tags/pi/">pi</a><a href="/tags/hexo/">hexo</a><a href="/tags/github/">github</a></div>
-
-      
-    </footer>
-    
-  </div>
-  
-</article></div>
-  <footer id="footer" class="inner"><div class="social alignright">
-  
-  
-  
-  
-  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+        
+        
+        </div>
+    </div>
 </div>
-<p>
+                </div>
+        </div>
+
+  <footer>
   
   &copy; 2013 yzhkpli
   
-</p>
-<div class="clearfix"></div></footer>
+</footer>
   <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
@@ -205,12 +277,5 @@ yum2014.info
 })(jQuery);
 </script>
 
-
-<div id="phasebeam">
-  <canvas></canvas>
-  <canvas></canvas>
-  <canvas></canvas>
-</div>
-<script src="/js/phasebeam.js"></script>
 </body>
 </html>
